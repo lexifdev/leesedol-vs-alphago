@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        #board {
+            width: 800px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>1</h1>
+        <div id="container-1"></div>
+    </div>
+    <div>
+        <h1>2</h1>
+        <div id="container-2"></div>
+    </div>
+    <div>
+        <h1>3</h1>
+        <div id="container-3"></div>
+    </div>
+    <div>
+        <h1>4</h1>
+        <div id="container-4"></div>
+    </div>
+
+    <script type="text/javascript" src="lib/player/js/all.compressed.js"></script>
+    <script>
+        function eidogoOptions(container, sgfUrl) {
+            return {
+                container: container,
+                theme: 'compact',
+                sgfUrl: sgfUrl,
+                mode: 'view',
+                showComments: true,
+                showPlayerInfo: true,
+                showMoveNumber: true,
+                markCurrent: true,
+                hooks: {
+                    initGame: function () {
+                        // WTF..
+                        var x = this;
+                        setTimeout(function () {
+                            x.last();
+                        }, 500);
+                    }
+                }
+            }
+        }
+
+        new eidogo.Player(eidogoOptions('container-1', 'data/20160309-Lee-Sedol-vs-AlphaGo.sgf'));
+        new eidogo.Player(eidogoOptions('container-2', 'data/20160310-AlphaGo-vs-Lee-Sedol.sgf'));
+        new eidogo.Player(eidogoOptions('container-3', 'data/20160312-Lee-Sedol-vs-AlphaGo.sgf'));
+        new eidogo.Player(eidogoOptions('container-4', 'data/20160313-AlphaGo-vs-Lee-Sedol.sgf'));
+    </script>
+
+    <div>
+        <dl>
+            <dt>SGF files</dt>
+                <dd>CC4.0 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a> from gogameguru</dd>
+            <dt>Eidogo Player</dt>
+                <dd>AGPLv3 (original: eidogo.com, modified: github.com/lexifdev/lee-vs-alphago</dd>
+        </dl>
+    </div>
+</body>
+</html>

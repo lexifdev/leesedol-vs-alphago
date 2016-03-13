@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+    #board {
+        width: 800px;
+        height: 500px;
+    }
+    </style>
+</head>
+<body>
+    <div id="board"></div>
+    <div>
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+    </div>
+    <script src="lib/glift_1_0_6.min.js"></script>
+    <script>
+        var x = glift.create({
+            divId: 'board',
+            sgfCollection: [
+                'data/20160309-Lee-Sedol-vs-AlphaGo.sgf',
+                'data/20160310-AlphaGo-vs-Lee-Sedol.sgf',
+                'data/20160312-Lee-Sedol-vs-AlphaGo.sgf',
+                'data/20160313-AlphaGo-vs-Lee-Sedol.sgf'
+            ],
+            display: {
+                drawBoardCoords: true
+            }
+        });
+    </script>
+</body>
+</html>
